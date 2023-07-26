@@ -1,0 +1,40 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+default_install_hook_types: [pre-commit, commit-msg]
+default_stages: [commit]
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+        name: Trim trailing whitespace
+      - id: check-yaml
+        name: Verify syntax of yaml files
+      - id: check-added-large-files
+        name: Validate files added are under 5120KB
+        args: ['--maxkb=5120']
+
+  - repo: https://github.com/pre-commit/mirrors-prettier
+    rev: v3.0.0
+    hooks:
+      - id: prettier
+        name: Format files with Prettier
+
+  - repo: local
+    hooks:
+      - id: eslint-profile
+        name: Lint files with ESlint
+        entry: ./node_modules/.bin/eslint --fix
+        language: script
+        files: .*\.[jt]sx?$
+        types: [file]
+
+  - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
+    rev: v6.0.0
+    hooks:
+      - id: commitlint
+        name: Validate Commit message
+        stages:
+          - commit-msg
+        additional_dependencies: ['@commitlint/config-conventional']
