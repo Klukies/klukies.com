@@ -25,7 +25,7 @@ precommit() {
 }
 
 main() {
-  if [ "$NODE_ENV" = "production" ] || [ "$SYSTEM" = "build" ]; then
+  if [ "$NODE_ENV" = "production" ] || [ "$CI" = "true" ]; then
     echo ""
     echo "[postinstall-local.sh] CI detected. Skipping..."
     echo ""
