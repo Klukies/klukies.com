@@ -1,3 +1,5 @@
+import { flatRoutes } from 'remix-flat-routes';
+
 /** @type {import('@remix-run/dev').AppConfig} */
 export default {
   future: {
@@ -9,6 +11,17 @@ export default {
     v2_routeConvention: true,
   },
   ignoredRouteFiles: ['**/.*'],
+  routes(defineRoutes) {
+    return flatRoutes('routes', defineRoutes, {
+      ignoredRouteFiles: [
+        '**/*.css',
+        '**/components/**/*',
+        '**/hooks/**/*',
+        '**/helpers/**/*',
+        '**/tests/**/*',
+      ],
+    });
+  },
   // appDirectory: "app",
   // assetsBuildDirectory: "public/build",
   // serverBuildPath: "build/index.js",
