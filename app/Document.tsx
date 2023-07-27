@@ -1,9 +1,9 @@
 import { Links, LiveReload, Meta, Scripts, ScrollRestoration } from '@remix-run/react';
-import { ReactNode } from 'react';
+import { type ReactNode } from 'react';
 
-import { Theme } from './routes/resources+/theme/theme.server.ts';
+import { type Theme } from './routes/resources+/theme/theme.server.ts';
 import { ClientHintsCheck } from './utils/client-hints/index.ts';
-import { getEnv } from './utils/env.server.ts';
+import { type getEnv } from './utils/env.server.ts';
 
 export interface DocumentProps {
   nonce: string;

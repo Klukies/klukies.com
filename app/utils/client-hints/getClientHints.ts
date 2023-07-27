@@ -1,4 +1,4 @@
-import { ClientHintNames, clientHints } from './client-hints.ts';
+import { type ClientHintNames, clientHints } from './client-hints.ts';
 
 const getCookieValue = (cookieString: string, name: ClientHintNames) => {
   const hint = clientHints[name];

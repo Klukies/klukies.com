@@ -6,7 +6,7 @@ import { build } from 'esbuild';
 import fsExtra from 'fs-extra';
 import { globSync } from 'glob';
 
-import packageJson from '../package.json';
+import type packageJson from '../package.json';
 
 const pkg = fsExtra.readJsonSync(path.join(process.cwd(), 'package.json')) as typeof packageJson;
 

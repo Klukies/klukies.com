@@ -2,7 +2,7 @@ import { useRouteLoaderData } from '@remix-run/react';
 
 import { invariant } from '../invariant.ts';
 
-import { loader } from '~/root.tsx';
+import { type loader } from '~/root.tsx';
 
 export function useRequestInfo() {
   const data = useRouteLoaderData<typeof loader>('root');

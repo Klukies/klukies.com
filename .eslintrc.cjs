@@ -46,6 +46,10 @@ module.exports = {
       plugins: ['import', '@typescript-eslint', 'prettier'],
       rules: {
         curly: 'error',
+        '@typescript-eslint/consistent-type-imports': [
+          'error',
+          { fixStyle: 'inline-type-imports' },
+        ],
         '@typescript-eslint/method-signature-style': 'error',
         '@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: false }],
         '@typescript-eslint/no-unsafe-enum-comparison': 'off',

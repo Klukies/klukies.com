@@ -1,4 +1,4 @@
-import { Theme } from '~/routes/resources+/theme/theme.server.ts';
+import { type Theme } from '~/routes/resources+/theme/theme.server.ts';
 
 export type ClientHintNames = keyof typeof clientHints;
 

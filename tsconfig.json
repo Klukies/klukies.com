@@ -1,23 +1,20 @@
 {
-  "include": ["**/*.ts", "**/*.tsx"],
   "compilerOptions": {
     "allowJs": true,
     "allowImportingTsExtensions": true,
     "baseUrl": ".",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
     "lib": ["DOM", "DOM.Iterable", "ES2023"],
-    "module": "Node16",
-    "moduleResolution": "Node16",
+    "module": "node16",
+    "moduleResolution": "node16",
     "noEmit": true,
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": ["app/*"],
+      "~/icon-name": ["app/components/icons/name.d.ts"]
     },
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "ES2022"
-  }
+    "resolveJsonModule": true
+  },
+  "extends": "@tsconfig/node18/tsconfig.json",
+  "include": ["**/*.ts", "**/*.tsx"]
 }

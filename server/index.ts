@@ -2,7 +2,7 @@ import crypto from 'crypto';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { createRequestHandler, GetLoadContextFunction } from '@remix-run/express';
+import { createRequestHandler, type GetLoadContextFunction } from '@remix-run/express';
 import { broadcastDevReady, type ServerBuild } from '@remix-run/node';
 import address from 'address';
 import chalk from 'chalk';
@@ -91,7 +91,7 @@ app.use(
           process.env.SENTRY_DSN ? '*.ingest.sentry.io' : null,
           "'self'",
         ].filter(Boolean),
-        'font-src': ["'self'"],
+        'font-src': ["'self'", 'fonts.gstatic.com'],
         'frame-src': ["'self'"],
         'img-src': ["'self'", 'data:'],
         'script-src': ["'strict-dynamic'", "'self'", (_, res) => `'nonce-${res.locals.cspNonce}'`],

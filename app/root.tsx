@@ -1,5 +1,5 @@
 import { cssBundleHref } from '@remix-run/css-bundle';
-import { json, LoaderArgs, type LinksFunction } from '@remix-run/node';
+import { json, type LoaderArgs, type LinksFunction } from '@remix-run/node';
 import { Outlet, useLoaderData } from '@remix-run/react';
 
 import { Document } from './Document.tsx';
