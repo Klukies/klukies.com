@@ -1,7 +1,7 @@
 /* eslint-disable no-var, @typescript-eslint/no-empty-interface */
-import { z } from 'zod';
+import { type z } from 'zod';
 
-import { getEnv, schema } from '~/utils/env.server.ts';
+import { type getEnv, type schema } from '~/utils/env.server.ts';
 
 type Env = z.infer<typeof schema>;
 
