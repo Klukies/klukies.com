@@ -1,0 +1,9 @@
+main {
+  max-width: 38rem;
+  padding: var(--spacing-8) var(--spacing-5);
+  margin: auto;
+}
+
+p {
+  margin-bottom: var(--spacing-4);
+}

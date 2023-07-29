@@ -11,6 +11,7 @@ export default {
     v2_routeConvention: true,
   },
   ignoredRouteFiles: ['**/.*'],
+  postcss: true,
   routes(defineRoutes) {
     return flatRoutes('routes', defineRoutes, {
       ignoredRouteFiles: [
@@ -27,5 +28,4 @@ export default {
   // serverBuildPath: "build/index.js",
   // publicPath: "/build/",
   serverModuleFormat: 'esm',
-  tailwind: true,
 };

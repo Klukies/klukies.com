@@ -1,6 +1,6 @@
 import { getClientHints } from '../client-hints/index.ts';
 
-import { getTheme } from '~/routes/resources+/theme/theme.server.ts';
+import { getTheme } from '~/routes/resources+/theme/index.tsx';
 
 export const getRequestInfo = (request: Request) => ({
   clientHints: getClientHints(request),

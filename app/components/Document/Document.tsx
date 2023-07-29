@@ -1,9 +1,14 @@
+import { type LinksFunction } from '@remix-run/node';
 import { Links, LiveReload, Meta, Scripts, ScrollRestoration } from '@remix-run/react';
 import { type ReactNode } from 'react';
 
-import { type Theme } from './routes/resources+/theme/theme.server.ts';
-import { ClientHintsCheck } from './utils/client-hints/index.ts';
-import { type getEnv } from './utils/env.server.ts';
+import { ClientHintsCheck } from '../../utils/client-hints/index.ts';
+import { type getEnv } from '../../utils/env.server.ts';
+import { SiteHeader } from '../SiteHeader/SiteHeader.tsx';
+
+import styles from './Document.css';
+
+import { Theme } from '~/routes/resources+/theme/index.tsx';
 
 export interface DocumentProps {
   nonce: string;
@@ -12,7 +17,9 @@ export interface DocumentProps {
   env?: ReturnType<typeof getEnv>;
 }
 
-export const Document = ({ nonce, theme = 'light', env, children }: DocumentProps) => {
+const links: LinksFunction = () => [...SiteHeader.links(), { rel: 'stylesheet', href: styles }];
+
+export const Document = ({ nonce, theme = Theme.Light, env, children }: DocumentProps) => {
   return (
     <html lang="en" className={`${theme}`}>
       <head>
@@ -23,6 +30,7 @@ export const Document = ({ nonce, theme = 'light', env, children }: DocumentProp
         <Links />
       </head>
       <body>
+        <SiteHeader />
         {children}
         <script
           nonce={nonce}
@@ -35,3 +43,5 @@ export const Document = ({ nonce, theme = 'light', env, children }: DocumentProp
     </html>
   );
 };
+
+Document.links = links;
