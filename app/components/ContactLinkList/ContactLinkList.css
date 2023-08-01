@@ -1,17 +1,18 @@
-main {
-  max-width: 38rem;
-  padding: var(--spacing-8) var(--spacing-5);
-  margin: auto;
+.contact-link-list__wrapper p {
+  margin-bottom: var(--spacing-2);
 }
 
-p,
-ul {
-  margin-bottom: var(--spacing-4);
+.contact-link-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+  list-style: none;
 }
 
-#company {
+.contact-link-list__item a {
   position: relative;
-  color: var(--color-text);
+  display: block;
+  color: var(--color-subtext0);
   text-decoration: none;
 
   &::after {
@@ -30,12 +31,18 @@ ul {
     opacity: 1;
   }
 
+  &:hover {
+    color: var(--color-text);
+  }
+
   &:focus-visible {
+    color: var(--color-text);
     outline: none;
   }
 
-  &:hover::after {
-    @media (prefers-reduced-motion: no-preference) {
+  @media (prefers-reduced-motion: no-preference) {
+    &,
+    &::after {
       transition-duration: var(--duration-300);
       transition-property: color, opacity;
       transition-timing-function: ease-in-out;
@@ -43,10 +50,7 @@ ul {
   }
 }
 
-#hr {
-  display: block;
-  width: 11px;
-  height: 22px;
-  margin: var(--spacing-4) auto;
-  color: var(--color-surface2);
+.contact-link-list__item svg {
+  width: 16px;
+  height: 16px;
 }

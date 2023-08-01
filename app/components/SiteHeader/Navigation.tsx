@@ -1,20 +1,11 @@
-import { Link, type LinkProps } from '@remix-run/react';
 import { type ComponentProps } from 'react';
 
-interface SiteNavigationItemProps extends LinkProps {
-  external?: boolean;
-}
+import { ContactLink, type ContactLinkProps } from '../ContactLinkList/ContactLink.tsx';
 
-const SiteNavigationItem = ({ children, external, ...props }: SiteNavigationItemProps) => {
-  return (
-    <Link
-      {...props}
-      className="site-navigation__item"
-      {...(external && { target: '_blank', rel: 'noopener norefferer' })}
-    >
-      {children}
-    </Link>
-  );
+type SiteNavigationItemProps = ContactLinkProps;
+
+const SiteNavigationItem = (props: SiteNavigationItemProps) => {
+  return <ContactLink {...props} className="site-navigation__item" />;
 };
 
 type SiteNavigationProps = ComponentProps<'nav'>;

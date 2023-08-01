@@ -2,7 +2,7 @@ import { json, type LoaderArgs, type LinksFunction } from '@remix-run/node';
 import { Outlet, useLoaderData } from '@remix-run/react';
 
 import { Document } from './components/Document/Document.tsx';
-import { Icon } from './components/Icon.tsx';
+import { Icon } from './components/Icon/Icon.tsx';
 import { useTheme } from './routes/resources+/theme/hooks/useTheme.tsx';
 import globalStylesheetHref from './styles/global.css';
 import resetStylesheetHref from './styles/reset.css';
@@ -19,7 +19,7 @@ export const links: LinksFunction = () => [
   { rel: 'preload', href: globalStylesheetHref, as: 'style' },
   {
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap',
+    href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap',
   },
   { rel: 'icon', type: 'image/svg+xml', href: '/favicons/favicon.svg' },
   { rel: 'stylesheet', href: resetStylesheetHref },

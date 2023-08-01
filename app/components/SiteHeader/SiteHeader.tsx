@@ -1,8 +1,6 @@
 import { type LinksFunction } from '@remix-run/node';
 import { type ComponentProps } from 'react';
 
-import { Icon } from '../Icon.tsx';
-
 import { HomeLink } from './HomeLink.tsx';
 import { SiteNavigation } from './Navigation.tsx';
 import styles from './SiteHeader.css';
@@ -19,12 +17,8 @@ export const SiteHeader = (props: HeaderProps) => {
       <HomeLink />
       <div className="actions">
         <SiteNavigation>
-          <SiteNavigation.Item to="https://x.com/Klukies" prefetch="intent" external>
-            <Icon name="x-logo" />
-          </SiteNavigation.Item>
-          <SiteNavigation.Item to="https://github.com/Klukies" prefetch="intent" external>
-            <Icon name="github-logo" />
-          </SiteNavigation.Item>
+          <SiteNavigation.Item variant="X" />
+          <SiteNavigation.Item variant="GitHub" />
         </SiteNavigation>
         <ThemeSwitch />
       </div>
