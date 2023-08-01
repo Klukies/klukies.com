@@ -5,7 +5,7 @@
 .contact-link-list {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-4);
+  gap: var(--spacing-2) var(--spacing-4);
   list-style: none;
 }
 
