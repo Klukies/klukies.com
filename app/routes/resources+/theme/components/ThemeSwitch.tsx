@@ -2,7 +2,7 @@ import { useFetcher } from '@remix-run/react';
 
 import { useOptimisticTheme } from '../hooks/useOptimisticTheme.tsx';
 import { useThemeSwitchForm } from '../hooks/useThemeSwitchForm.tsx';
-import { ROUTE_PATH, type Theme } from '../index.tsx';
+import { ROUTE_PATH, Theme } from '../index.tsx';
 
 import { Icon } from '~/components/Icon/Icon.tsx';
 import { type IconName } from '~/components/icons/name.js';
@@ -35,7 +35,7 @@ export const ThemeSwitch = () => {
   const optimisticTheme = useOptimisticTheme();
   const currentTheme = optimisticTheme ?? userPreferences.theme ?? 'system';
   const nextTheme =
-    currentTheme === 'system' ? 'light' : currentTheme === 'light' ? 'dark' : 'system';
+    currentTheme === 'system' ? Theme.Light : currentTheme === Theme.Light ? Theme.Dark : 'system';
 
   return (
     <fetcher.Form method="POST" action={ROUTE_PATH} className="theme-switch" {...form.props}>

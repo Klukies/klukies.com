@@ -23,11 +23,18 @@ repos:
 
   - repo: local
     hooks:
-      - id: eslint-profile
-        name: Lint files with ESlint
+      - id: eslint
+        name: Lint JavaScript and TypeScript files with ESlint
         entry: ./node_modules/.bin/eslint --fix
         language: script
         files: .*\.[jt]sx?$
+        types: [file]
+
+      - id: stylelint
+        name: Lint CSS files with Stylelint
+        entry: ./node_modules/.bin/stylelint --fix
+        language: script
+        files: apps/profile/.*\.css?$
         types: [file]
 
   - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
