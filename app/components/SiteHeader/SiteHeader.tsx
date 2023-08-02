@@ -1,21 +1,17 @@
-import { type LinksFunction } from '@remix-run/node';
 import { type ComponentProps } from 'react';
 
 import { HomeLink } from './HomeLink.tsx';
 import { SiteNavigation } from './Navigation.tsx';
-import styles from './SiteHeader.css';
 
 import { ThemeSwitch } from '~/routes/resources+/theme/components/ThemeSwitch.tsx';
 
 export type HeaderProps = ComponentProps<'header'>;
 
-const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
-
 export const SiteHeader = (props: HeaderProps) => {
   return (
-    <header className="site-header" {...props}>
+    <header className="flex justify-between p-5" {...props}>
       <HomeLink />
-      <div className="actions">
+      <div className="flex gap-2">
         <SiteNavigation>
           <SiteNavigation.Item variant="X" />
           <SiteNavigation.Item variant="GitHub" />
@@ -25,5 +21,3 @@ export const SiteHeader = (props: HeaderProps) => {
     </header>
   );
 };
-
-SiteHeader.links = links;

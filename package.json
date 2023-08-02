@@ -16,7 +16,6 @@
     "typecheck": "tsc",
     "format": "prettier --write .",
     "lint": "eslint . --fix",
-    "stylelint": "stylelint --fix 'app/**/*.css'",
     "postinstall": "./scripts/postinstall.sh"
   },
   "dependencies": {
@@ -44,6 +43,8 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remix-utils": "^6.6.0",
+    "tailwind": "^4.0.0",
+    "tailwind-merge": "^1.14.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
@@ -72,12 +73,10 @@
     "glob": "^10.3.3",
     "node-html-parser": "^6.1.5",
     "npm-run-all": "^4.1.5",
-    "postcss-nesting": "^12.0.0",
     "prettier": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.4.1",
     "remix-flat-routes": "^0.5.10",
-    "stylelint": "^15.10.2",
-    "stylelint-config-idiomatic-order": "^9.0.0",
-    "stylelint-config-standard": "^34.0.0",
+    "tailwindcss": "^3.3.3",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4"
   },

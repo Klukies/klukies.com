@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-rosewater: 220 138 120;
+    --color-flamingo: 221 120 120;
+    --color-pink: 234 118 203;
+    --color-mauve: 136 57 239;
+    --color-red: 210 15 57;
+    --color-maroon: 230 69 83;
+    --color-peach: 254 100 11;
+    --color-yellow: 223 142 29;
+    --color-green: 64 160 43;
+    --color-teal: 23 146 153;
+    --color-sky: 4 165 229;
+    --color-sapphire: 32 159 181;
+    --color-blue: 30 102 245;
+    --color-lavender: 114 135 253;
+    --color-text: 76 79 105;
+    --color-subtext1: 92 95 119;
+    --color-subtext0: 108 111 133;
+    --color-overlay2: 124 127 147;
+    --color-overlay1: 140 143 161;
+    --color-overlay0: 156 160 176;
+    --color-surface2: 172 176 190;
+    --color-surface1: 188 192 204;
+    --color-surface0: 204 208 218;
+    --color-base: 239 241 245;
+    --color-mantle: 230 233 239;
+    --color-crust: 220 224 232;
+  }
+
+  .dark {
+    --color-rosewater: 244 219 214;
+    --color-flamingo: 240 198 198;
+    --color-pink: 245 189 230;
+    --color-mauve: 198 160 246;
+    --color-red: 237 135 150;
+    --color-maroon: 238 153 160;
+    --color-peach: 245 169 127;
+    --color-yellow: 238 212 159;
+    --color-green: 166 218 149;
+    --color-teal: 139 213 202;
+    --color-sky: 145 215 227;
+    --color-sapphire: 125 196 228;
+    --color-blue: 138 173 244;
+    --color-lavender: 183 189 248;
+    --color-text: 202 211 245;
+    --color-subtext1: 184 192 224;
+    --color-subtext0: 165 173 203;
+    --color-overlay2: 147 154 183;
+    --color-overlay1: 128 135 162;
+    --color-overlay0: 110 115 141;
+    --color-surface2: 91 96 120;
+    --color-surface1: 73 77 100;
+    --color-surface0: 54 58 79;
+    --color-base: 36 39 58;
+    --color-mantle: 30 32 48;
+    --color-crust: 24 25 38;
+  }
+}

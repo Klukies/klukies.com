@@ -28,4 +28,6 @@ export default {
   // serverBuildPath: "build/index.js",
   // publicPath: "/build/",
   serverModuleFormat: 'esm',
+  tailwind: true,
+  watchPaths: ['./tailwind.config.ts'],
 };

@@ -1,7 +1,11 @@
 import autoprefixer from 'autoprefixer';
 import cssnano from 'cssnano';
-import postcssNesting from 'postcss-nesting';
+import tailwindcss from 'tailwindcss';
 
 export default {
-  plugins: [postcssNesting(), autoprefixer(), cssnano({ preset: 'default' })],
+  plugins: [
+    tailwindcss(),
+    autoprefixer(),
+    ...(process.env.NODE_ENV === 'production' ? cssnano({ preset: 'default' }) : {}),
+  ],
 };

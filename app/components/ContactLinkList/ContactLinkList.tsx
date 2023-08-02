@@ -1,34 +1,25 @@
-import { type LinksFunction } from '@remix-run/node';
 import { type ComponentProps } from 'react';
 
 import { ContactLink, type ContactLinkProps } from './ContactLink.tsx';
-import stylesheetHref from './ContactLinkList.css';
 
 export type ContactLinksProps = ComponentProps<'ul'>;
 
-export const links: LinksFunction = () => [{ rel: 'stylesheet', href: stylesheetHref }];
-
 const ContactLinkListItem = ({ variant }: Pick<ContactLinkProps, 'variant'>) => {
   return (
-    <li className="contact-link-list__item">
-      <ContactLink variant={variant} withLabel />
+    <li>
+      <ContactLink variant={variant} size="sm" withLabel />
     </li>
   );
 };
 
 export const ContactLinkList = (props: ContactLinksProps) => {
   return (
-    <div className="contact-link-list__wrapper">
-      <p>I'm active on</p>
-      <ul {...props} className="contact-link-list">
-        <ContactLinkListItem variant="GitHub" />
-        <ContactLinkListItem variant="X" />
-        <ContactLinkListItem variant="Discord" />
-        <ContactLinkListItem variant="Instagram" />
-        <ContactLinkListItem variant="Email" />
-      </ul>
-    </div>
+    <ul {...props} className="mb-4 flex list-none flex-wrap gap-x-4 gap-y-2">
+      <ContactLinkListItem variant="GitHub" />
+      <ContactLinkListItem variant="X" />
+      <ContactLinkListItem variant="Discord" />
+      <ContactLinkListItem variant="Instagram" />
+      <ContactLinkListItem variant="Email" />
+    </ul>
   );
 };
-
-ContactLinkList.links = links;
