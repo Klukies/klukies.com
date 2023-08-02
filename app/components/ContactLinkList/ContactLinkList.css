@@ -9,7 +9,7 @@
   list-style: none;
 }
 
-.contact-link-list__item a {
+.contact-link {
   position: relative;
   display: block;
   color: var(--color-subtext0);

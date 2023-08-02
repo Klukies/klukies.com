@@ -5,7 +5,7 @@ import { ContactLink, type ContactLinkProps } from '../ContactLinkList/ContactLi
 type SiteNavigationItemProps = ContactLinkProps;
 
 const SiteNavigationItem = (props: SiteNavigationItemProps) => {
-  return <ContactLink {...props} className="site-navigation__item" />;
+  return <ContactLink {...props} />;
 };
 
 type SiteNavigationProps = ComponentProps<'nav'>;

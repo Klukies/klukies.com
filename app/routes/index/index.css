@@ -1,5 +1,5 @@
 main {
-  max-width: 38rem;
+  max-width: 42rem;
   padding: var(--spacing-8) var(--spacing-5);
   margin: auto;
 }
@@ -10,37 +10,8 @@ ul {
 }
 
 #company {
-  position: relative;
+  display: inline-block;
   color: var(--color-text);
-  text-decoration: none;
-
-  &::after {
-    position: absolute;
-    z-index: 10;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--color-text);
-    content: '';
-    opacity: 0;
-  }
-
-  &:is(:hover, :focus-visible)::after {
-    opacity: 1;
-  }
-
-  &:focus-visible {
-    outline: none;
-  }
-
-  &:hover::after {
-    @media (prefers-reduced-motion: no-preference) {
-      transition-duration: var(--duration-300);
-      transition-property: color, opacity;
-      transition-timing-function: ease-in-out;
-    }
-  }
 }
 
 #hr {
