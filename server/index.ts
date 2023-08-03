@@ -91,7 +91,7 @@ app.use(
           process.env.SENTRY_DSN ? '*.ingest.sentry.io' : null,
           "'self'",
         ].filter(Boolean),
-        'font-src': ["'self'", 'fonts.gstatic.com'],
+        'font-src': ["'self'"],
         'frame-src': ["'self'"],
         'img-src': ["'self'", 'data:'],
         'script-src': ["'strict-dynamic'", "'self'", (_, res) => `'nonce-${res.locals.cspNonce}'`],

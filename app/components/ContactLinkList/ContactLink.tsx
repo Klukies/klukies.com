@@ -1,8 +1,9 @@
 import { Link, type LinkProps } from '@remix-run/react';
-import clsx from 'clsx';
 
-import { Icon } from '../Icon/Icon.tsx';
+import { Icon, type IconProps } from '../Icon/Icon.tsx';
 import { type IconName } from '../icons/name.js';
+
+import { cn } from '~/utils/cn.ts';
 
 type ContactLinkKeys = 'Company' | 'X' | 'GitHub' | 'Discord' | 'Instagram' | 'Email';
 
@@ -13,6 +14,7 @@ interface ContactLinkMapValues extends LinkProps {
 
 export interface ContactLinkProps extends Omit<LinkProps, 'to' | 'children'> {
   variant: ContactLinkKeys;
+  size?: IconProps['size'];
   withLabel?: boolean;
 }
 
@@ -38,7 +40,22 @@ export const contactLinksMap = new Map<ContactLinkKeys, ContactLinkMapValues>([
   ],
 ]);
 
-export const ContactLink = ({ variant, withLabel, className, ...props }: ContactLinkProps) => {
+const contactLinkClassNames = cn(
+  'relative block text-subtext0 no-underline',
+  'after:absolute after:z-10 after:right-0 after:bottom-0 after:w-full after:h-px after:bg-text after:opacity-0',
+  'hover:after:opacity-100 hover:text-text',
+  'focus-visible:after:opacity-100 focus-visible:text-text focus-visible:outline-none',
+  'motion-safe:transition-[color] motion-safe:duration-300 motion-safe:ease-in-out',
+  'motion-safe:after:transition-opacity motion-safe:after:duration-300 motion-safe:after:ease-in-out',
+);
+
+export const ContactLink = ({
+  variant,
+  size,
+  withLabel,
+  className,
+  ...props
+}: ContactLinkProps) => {
   const { to, label, iconName } = contactLinksMap.get(variant)!;
   const externalLinkAttributes = { target: '_blank', rel: 'noopener norefferer' };
 
@@ -47,10 +64,16 @@ export const ContactLink = ({ variant, withLabel, className, ...props }: Contact
       <Link
         {...props}
         {...externalLinkAttributes}
-        className={clsx('contact-link', className)}
         to={to}
+        className={cn(contactLinkClassNames, className)}
       >
-        {iconName ? <Icon name={iconName}>{label}</Icon> : label}
+        {iconName ? (
+          <Icon name={iconName} size={size}>
+            {label}
+          </Icon>
+        ) : (
+          label
+        )}
       </Link>
     );
   }
@@ -59,11 +82,11 @@ export const ContactLink = ({ variant, withLabel, className, ...props }: Contact
     <Link
       {...props}
       {...externalLinkAttributes}
-      className={clsx('contact-link', className)}
       to={to}
       aria-label={label}
+      className={cn(contactLinkClassNames, className)}
     >
-      {iconName ? <Icon name={iconName} /> : label}
+      {iconName ? <Icon name={iconName} size={size} /> : label}
     </Link>
   );
 };

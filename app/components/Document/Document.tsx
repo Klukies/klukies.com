@@ -1,12 +1,9 @@
-import { type LinksFunction } from '@remix-run/node';
 import { Links, LiveReload, Meta, Scripts, ScrollRestoration } from '@remix-run/react';
 import { type ReactNode } from 'react';
 
 import { ClientHintsCheck } from '../../utils/client-hints/index.ts';
 import { type getEnv } from '../../utils/env.server.ts';
 import { SiteHeader } from '../SiteHeader/SiteHeader.tsx';
-
-import styles from './Document.css';
 
 import { Theme } from '~/routes/resources+/theme/index.tsx';
 
@@ -17,11 +14,9 @@ export interface DocumentProps {
   env?: ReturnType<typeof getEnv>;
 }
 
-const links: LinksFunction = () => [...SiteHeader.links(), { rel: 'stylesheet', href: styles }];
-
 export const Document = ({ nonce, theme = Theme.Light, env, children }: DocumentProps) => {
   return (
-    <html lang="en" className={`${theme}`}>
+    <html lang="en" className={theme}>
       <head>
         <ClientHintsCheck nonce={nonce} />
         <meta charSet="utf-8" />
@@ -29,7 +24,7 @@ export const Document = ({ nonce, theme = Theme.Light, env, children }: Document
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="min-h-screen bg-base text-base text-text sm:text-lg/normal">
         <SiteHeader />
         {children}
         <script
@@ -43,5 +38,3 @@ export const Document = ({ nonce, theme = Theme.Light, env, children }: Document
     </html>
   );
 };
-
-Document.links = links;

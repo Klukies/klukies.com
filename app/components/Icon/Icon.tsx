@@ -1,34 +1,41 @@
 import { type LinksFunction } from '@remix-run/node';
-import clsx from 'clsx';
 import { type ComponentProps } from 'react';
 
 import iconSpriteHref from '../icons/sprite.svg';
 
-import stylesheetHref from './Icon.css';
-
 import type { IconName } from '~/icon-name';
+import { cn } from '~/utils/cn.ts';
 
-interface IconProps extends ComponentProps<'svg'> {
+const sizeClassName = {
+  sm: 'w-4 h-4',
+  md: 'w-5, h-5',
+  lg: 'w-6 h-6',
+};
+
+export interface IconProps extends ComponentProps<'svg'> {
   name: IconName;
+  size?: keyof typeof sizeClassName;
 }
 
-const links: LinksFunction = () => [
-  { rel: 'preload', href: iconSpriteHref, as: 'image' },
-  { rel: 'stylesheet', href: stylesheetHref },
-];
+const links: LinksFunction = () => [{ rel: 'preload', href: iconSpriteHref, as: 'image' }];
 
-export const Icon = ({ name, className, children, ...props }: IconProps) => {
+export const Icon = ({ name, size = 'lg', children, className, ...props }: IconProps) => {
   if (children) {
     return (
-      <span className={clsx('icon', 'icon--with-children', className)}>
-        <Icon name={name} {...props} />
+      <span className={cn('flex items-center gap-2', className)}>
+        <Icon name={name} size={size} {...props} />
         {children}
       </span>
     );
   }
 
   return (
-    <svg width="24" height="24" {...props} className={clsx('icon', className)}>
+    <svg
+      width="24"
+      height="24"
+      {...props}
+      className={cn(sizeClassName[size], 'inline self-center', className)}
+    >
       <use href={`${iconSpriteHref}#${name}`} />
     </svg>
   );
