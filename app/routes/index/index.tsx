@@ -2,6 +2,7 @@ import type { V2_MetaFunction } from '@remix-run/node';
 
 import { ContactLink } from '~/components/ContactLinkList/ContactLink.tsx';
 import { ContactLinkList } from '~/components/ContactLinkList/ContactLinkList.tsx';
+import { cn } from '~/utils/cn.ts';
 
 export const meta: V2_MetaFunction = () => {
   return [{ title: 'Klukies' }, { name: 'description', content: "Klukies's personal website" }];
@@ -15,7 +16,15 @@ export default function Index() {
         <p className="mb-4">Hey &#128075;, I'm Lukas, better known as Klukies</p>
         <p className="mb-4">
           Currently at{' '}
-          <ContactLink id="company" variant="Company" className="inline-block text-text" />
+          <ContactLink
+            id="company"
+            variant="Company"
+            className={cn(
+              'inline-block text-text duration-300',
+              'hover:font-medium',
+              'motion-safe:transition-[font-weight] motion-safe:duration-300 motion-safe:ease-in-out',
+            )}
+          />
           <br />
           Passionate about accessibility & web fundamentals while building delightful web
           applications
