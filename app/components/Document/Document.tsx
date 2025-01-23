@@ -23,6 +23,10 @@ export const Document = ({ nonce, theme = Theme.Light, env, children }: Document
         <meta name="viewport" content="width=device-width,initial-scale=1" />
         <Meta />
         <Links />
+        <link
+          rel="icon"
+          href={theme === 'dark' ? '/favicons/favicon-dark.ico' : '/favicons/favicon.ico'}
+        />
       </head>
       <body className="min-h-screen bg-base text-base text-text sm:text-lg/normal">
         <SiteHeader />

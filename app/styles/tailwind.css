@@ -20,6 +20,7 @@
     --color-blue: 30 102 245;
     --color-lavender: 114 135 253;
     --color-text: 76 79 105;
+    --color-text-opposite: 202 211 245;
     --color-subtext1: 92 95 119;
     --color-subtext0: 108 111 133;
     --color-overlay2: 124 127 147;
@@ -49,6 +50,7 @@
     --color-blue: 138 173 244;
     --color-lavender: 183 189 248;
     --color-text: 202 211 245;
+    --color-text-opposite: 76 79 105;
     --color-subtext1: 184 192 224;
     --color-subtext0: 165 173 203;
     --color-overlay2: 147 154 183;

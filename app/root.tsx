@@ -15,7 +15,6 @@ export const links: LinksFunction = () => [
   ...Icon.links(),
   { rel: 'preload', href: fontStylestylesheetUrl, as: 'style' },
   { rel: 'preload', href: tailwindStylesheetUrl, as: 'style' },
-  { rel: 'icon', type: 'image/svg+xml', href: '/favicons/favicon.svg' },
   { rel: 'stylesheet', href: fontStylestylesheetUrl },
   { rel: 'stylesheet', href: tailwindStylesheetUrl },
 ];

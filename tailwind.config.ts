@@ -71,6 +71,7 @@ export default {
         blue: 'rgb(var(--color-blue) / <alpha-value>)',
         lavender: 'rgb(var(--color-lavender) / <alpha-value>)',
         text: 'rgb(var(--color-text) / <alpha-value>)',
+        'text-opposite': 'rgb(var(--color-text-opposite) / <alpha-value>)',
         subtext1: 'rgb(var(--color-subtext1) / <alpha-value>)',
         subtext0: 'rgb(var(--color-subtext0) / <alpha-value>)',
         overlay2: 'rgb(var(--color-overlay2) / <alpha-value>)',
